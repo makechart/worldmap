@@ -1,7 +1,9 @@
 module.exports =
   pkg:
     name: 'worldmap', version: '0.0.1'
-    extend: {name: "@makechart/base"}
+    # 仍需完整 d3: pdmap-world 用到 d3 的 selection / transition / geo / force / scale / format,
+    # 拆成子模組幾乎等於整包, 明確指定 d3 版 base ( base 的 index.html 之後會改成 lite )
+    extend: {name: "@makechart/base", path: "d3/index.html"}
     dependencies: [
       {url: "https://d3js.org/d3-geo.v2.min.js", async: false}
       {url: "https://d3js.org/topojson.v2.min.js", async: false}
